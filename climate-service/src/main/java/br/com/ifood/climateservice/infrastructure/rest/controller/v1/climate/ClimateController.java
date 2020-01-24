@@ -2,6 +2,8 @@ package br.com.ifood.climateservice.infrastructure.rest.controller.v1.climate;
 
 import br.com.ifood.climateservice.infrastructure.port.application.ClimateApplicationPort;
 import br.com.ifood.climateservice.infrastructure.rest.controller.v1.climate.dto.ClimateDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
         })
 public class ClimateController {
 
+        private Logger logger = LoggerFactory.getLogger(this.getClass());
         private ClimateApplicationPort climateApplication;
 
         @Autowired
@@ -30,6 +33,7 @@ public class ClimateController {
                                                       @RequestParam(required = false) String city){
 
                 ClimateDTO climateDTO = climateApplication.getClimate(lat, lon, city);
+                logger.info("{}", climateDTO);
 
                 return ResponseEntity.ok(climateDTO);
         }
