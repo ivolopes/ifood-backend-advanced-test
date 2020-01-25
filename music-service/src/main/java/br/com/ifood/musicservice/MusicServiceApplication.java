@@ -1,4 +1,4 @@
-package br.com.ifood.climateservice;
+package br.com.ifood.musicservice;
 
 import brave.sampler.Sampler;
 import org.springframework.boot.SpringApplication;
@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableFeignClients
 @EnableCircuitBreaker
-public class ClimateServiceApplication {
+public class MusicServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ClimateServiceApplication.class, args);
+		SpringApplication.run(MusicServiceApplication.class, args);
 	}
 
 	@Bean

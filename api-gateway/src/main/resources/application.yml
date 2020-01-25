@@ -5,6 +5,15 @@ spring:
 server:
   port: 8080
 
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+ribbon:
+  ReadTimeout: 10000
 eureka:
   client:
     service-url:

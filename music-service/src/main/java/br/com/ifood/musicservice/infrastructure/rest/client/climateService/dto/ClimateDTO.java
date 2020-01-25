@@ -1,4 +1,4 @@
-package br.com.ifood.climateservice.infrastructure.rest.controller.v1.climate.dto;
+package br.com.ifood.musicservice.infrastructure.rest.client.climateService.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

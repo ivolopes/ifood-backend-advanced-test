@@ -2,6 +2,7 @@ package br.com.ifood.climateservice.infrastructure.rest.client;
 
 import br.com.ifood.climateservice.infrastructure.rest.client.dto.WeatherDTO;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,6 +19,7 @@ public interface WeatherMapClient {
                           @RequestParam(required = false) String lon);
 }
 
+@Component
 class WeatherMapClientFallback implements  WeatherMapClient{
 
     @Override
