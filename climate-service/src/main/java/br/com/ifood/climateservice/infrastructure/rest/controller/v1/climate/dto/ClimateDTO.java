@@ -1,5 +1,6 @@
 package br.com.ifood.climateservice.infrastructure.rest.controller.v1.climate.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,5 +15,7 @@ public class ClimateDTO {
     private Integer temperature;
     private String city;
     private String country;
+
+    @JsonIgnore
     private boolean unavailable;
 }

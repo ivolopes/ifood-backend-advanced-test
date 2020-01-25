@@ -33,8 +33,6 @@ public class ClimateData implements ClimateDataPort {
 
         final WeatherDTO response = weatherMapClient.getWeather(id, appId, units, city, null, null);
 
-        validateUnavailable(response);
-
         return convertToDTO(response);
     }
 
@@ -42,26 +40,22 @@ public class ClimateData implements ClimateDataPort {
     public ClimateDTO getClimateByLatLon(String lat, String lon) {
         final WeatherDTO response = weatherMapClient.getWeather(id, appId, units, null, lat, lon);
 
-        validateUnavailable(response);
-
         return convertToDTO(response);
-    }
-
-    private void validateUnavailable(WeatherDTO response){
-        if( response.isUnavailable() ){
-            throw new ServiceUnavailableException("service unavailable");
-        }
     }
 
     private ClimateDTO convertToDTO(WeatherDTO response){
 
-        Double temp = Double.parseDouble(response.getMain().getTemp());
-        return ClimateDTO.builder()
-                .city(response.getName())
-                .country(response.getSys().getCountry())
-                .latitude(response.getCoord().getLat())
-                .longitude(response.getCoord().getLon())
-                .temperature(temp.intValue())
-                .build();
+        if( response.isUnavailable() ){
+            return ClimateDTO.builder().unavailable(true).build();
+        }else{
+            double temp = Double.parseDouble(response.getMain().getTemp());
+            return ClimateDTO.builder()
+                    .city(response.getName())
+                    .country(response.getSys().getCountry())
+                    .latitude(response.getCoord().getLat())
+                    .longitude(response.getCoord().getLon())
+                    .temperature((int) temp)
+                    .build();
+        }
     }
 }

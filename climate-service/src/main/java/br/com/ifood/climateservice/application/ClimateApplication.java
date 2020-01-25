@@ -1,8 +1,10 @@
 package br.com.ifood.climateservice.application;
 
 import br.com.ifood.climateservice.framework.exceptions.BadRequestException;
+import br.com.ifood.climateservice.framework.exceptions.ServiceUnavailableException;
 import br.com.ifood.climateservice.infrastructure.port.application.ClimateApplicationPort;
 import br.com.ifood.climateservice.infrastructure.port.data.ClimateDataPort;
+import br.com.ifood.climateservice.infrastructure.rest.client.dto.WeatherDTO;
 import br.com.ifood.climateservice.infrastructure.rest.controller.v1.climate.dto.ClimateDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,15 +22,25 @@ public class ClimateApplication implements ClimateApplicationPort {
     @Override
     public ClimateDTO getClimate(String lat, String lon, String city) {
 
+        ClimateDTO climateDTO;
+
         if( city != null && !city.isEmpty() ){
-            return climateData.getClimateByCity(city);
+            climateDTO = climateData.getClimateByCity(city);
         }else if( lat != null && lon != null &&
                 !lat.isEmpty() && !lon.isEmpty() ){
-            return climateData.getClimateByLatLon(lat, lon);
+            climateDTO = climateData.getClimateByLatLon(lat, lon);
         }else{
             throw new BadRequestException("City name or latitude and longitude are required");
         }
 
+        validateUnavailable(climateDTO);
+
+        return climateDTO;
     }
 
+    private void validateUnavailable(ClimateDTO response){
+        if( response.isUnavailable() ){
+            throw new ServiceUnavailableException("It is not possible to search the city' temperature");
+        }
+    }
 }
