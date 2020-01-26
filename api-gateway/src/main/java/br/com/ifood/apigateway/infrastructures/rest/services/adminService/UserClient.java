@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 public interface UserClient {
 
     @GetMapping("/{username}")
-    UserClientDTO findByUsername(@RequestHeader("Authorization") String token,
-                                 @PathVariable(name = "username") String username);
+    UserClientDTO findByUsername(@PathVariable(name = "username") String username);
 
 }
 
@@ -21,7 +20,7 @@ public interface UserClient {
 class UserClientFallback implements UserClient{
 
     @Override
-    public UserClientDTO findByUsername( String token, String username) {
+    public UserClientDTO findByUsername(String username) {
         return UserClientDTO.builder()
                 .unavailable(true)
                 .build();

@@ -17,8 +17,8 @@ public class UserData implements UserDataPort {
     }
 
     @Override
-    public UserClientDTO findByUsername(String username, String token) {
-        return userClient.findByUsername(token, username);
+    public UserClientDTO findByUsername(String username) {
+        return userClient.findByUsername(username);
     }
 
 }

@@ -30,7 +30,7 @@ public class UserApplication implements UserApplicationPort {
     @Override
     public UserDetails findByUsername(String username, String token) throws UsernameNotFoundException {
 
-        UserClientDTO user = userData.findByUsername(username, token);
+        UserClientDTO user = userData.findByUsername(username);
 
         validateUnavailable(user);
 
