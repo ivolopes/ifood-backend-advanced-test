@@ -2,6 +2,7 @@ package br.com.ifood.adminservice.application;
 
 import br.com.ifood.adminservice.domain.User;
 import br.com.ifood.adminservice.framework.exceptions.BadRequestException;
+import br.com.ifood.adminservice.framework.jwt.JwtTokenProvider;
 import br.com.ifood.adminservice.infrastructure.port.application.UserApplicationPort;
 import br.com.ifood.adminservice.infrastructure.port.data.UserDataPort;
 import br.com.ifood.adminservice.infrastructure.rest.controller.v1.user.dto.UserDto;

@@ -23,15 +23,6 @@ public class UserController {
                 this.userApplication = userApplication;
         }
 
-        @PostMapping
-        public ResponseEntity<UserDto> add(@RequestBody UserDto userDto){
-                UserDto dto = userApplication.save(userDto.getFulllname(), userDto.getUsername(), userDto.getPassword());
-
-                URI uri = URI.create("/api/v1/users/"+dto.getUsername());
-
-                return ResponseEntity.created(uri).body(dto);
-        }
-
         @GetMapping("{username}")
         public ResponseEntity<UserDto> findByUsername(@PathVariable(name = "username") String username){
                 UserDto userDto = userApplication.findByUsername(username);

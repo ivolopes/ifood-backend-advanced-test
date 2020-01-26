@@ -1,4 +1,4 @@
-package br.com.ifood.adminservice.framework.exceptions;
+package br.com.ifood.apigateway.frameworks.exceptions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +30,22 @@ public class CustomizedResponseEntityExceptionHandler {
         logger.error(Arrays.toString(ex.getStackTrace()));
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity(errorDetails, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ErrorDetails> handleUserBadRequestException(NotFoundException ex, WebRequest request) {
+        logger.error(ex.getMessage());
+        logger.error(Arrays.toString(ex.getStackTrace()));
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(ServiceUnavailableException.class)
+    public ResponseEntity<ErrorDetails> handleUserServiceUnavailableException(ServiceUnavailableException ex, WebRequest request) {
+        logger.error(ex.getMessage());
+        logger.error(Arrays.toString(ex.getStackTrace()));
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity(errorDetails, HttpStatus.SERVICE_UNAVAILABLE);
     }
 
     @ExceptionHandler(Exception.class)
