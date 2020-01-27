@@ -18,8 +18,8 @@ public class CustomizedResponseEntityExceptionHandler {
 
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<ErrorDetails> handleUserBadRequestException(BadRequestException ex, WebRequest request) {
-        logger.error(ex.getMessage());
-        logger.error(Arrays.toString(ex.getStackTrace()));
+        logger.info(ex.getMessage());
+        logger.info(Arrays.toString(ex.getStackTrace()));
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity(errorDetails, HttpStatus.BAD_REQUEST);
     }

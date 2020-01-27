@@ -17,7 +17,7 @@ public class ClimateData implements ClimateDataPort {
     }
 
     @Override
-    public ClimateDTO getWeather(String cityName, String lat, String lon) {
-        return climateServiceClient.getWeather(cityName, lat, lon);
+    public ClimateDTO getWeather(String token, String cityName, String lat, String lon) {
+        return climateServiceClient.getWeather(token, cityName, lat, lon);
     }
 }

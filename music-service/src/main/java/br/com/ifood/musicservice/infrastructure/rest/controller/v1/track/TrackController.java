@@ -7,10 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,11 +27,12 @@ public class TrackController {
     }
 
     @GetMapping
-    public ResponseEntity<List<GenericDTO>> findClimate(@RequestParam(required = false) String lat,
+    public ResponseEntity<List<GenericDTO>> findClimate(@RequestHeader(name = "Authorization") String token,
+                                                        @RequestParam(required = false) String lat,
                                                         @RequestParam(required = false) String lon,
                                                         @RequestParam(required = false) String city){
 
-        final List<GenericDTO> tracks = trackApplication.getTracks(city, lat, lon);
+        final List<GenericDTO> tracks = trackApplication.getTracks(token, city, lat, lon);
 
         return ResponseEntity.ok(tracks);
     }

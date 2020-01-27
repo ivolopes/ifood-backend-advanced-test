@@ -25,11 +25,11 @@ public class TrackApplication implements TrackApplicationPort {
     }
 
     @Override
-    public List<GenericDTO> getTracks(String cityName, String lat, String lon) {
+    public List<GenericDTO> getTracks(String token, String cityName, String lat, String lon) {
 
         validateParams(cityName, lat, lon);
 
-        final ClimateDTO weather = climateData.getWeather(cityName, lat, lon);
+        final ClimateDTO weather = climateData.getWeather(token, cityName, lat, lon);
 
         validateClimateResponse(weather);
 
