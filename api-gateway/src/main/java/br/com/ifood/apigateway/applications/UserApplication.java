@@ -28,7 +28,7 @@ public class UserApplication implements UserApplicationPort {
     }
 
     @Override
-    public UserDetails findByUsername(String username, String token) throws UsernameNotFoundException {
+    public UserDetails findByUsername(String username) throws UsernameNotFoundException {
 
         UserClientDTO user = userData.findByUsername(username);
 

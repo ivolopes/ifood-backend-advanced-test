@@ -49,7 +49,7 @@ public class JwtTokenProvider {
 
 
     public Authentication getAuthentication(String token) {
-        UserDetails userDetails = this.userApplication.findByUsername(getUsername(token), BEARER_PREFIX+token);
+        UserDetails userDetails = this.userApplication.findByUsername(getUsername(token));
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
     }
 
