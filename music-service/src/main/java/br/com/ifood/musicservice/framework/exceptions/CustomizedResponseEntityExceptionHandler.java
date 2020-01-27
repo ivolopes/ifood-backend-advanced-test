@@ -23,6 +23,21 @@ public class CustomizedResponseEntityExceptionHandler {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
         return new ResponseEntity(errorDetails, HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<ErrorDetails> handleUserBadRequestException(ForbiddenException ex, WebRequest request) {
+        logger.info(ex.getMessage());
+        logger.info(Arrays.toString(ex.getStackTrace()));
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity(errorDetails, HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ErrorDetails> handleUserBadRequestException(UnauthorizedException ex, WebRequest request) {
+        logger.info(ex.getMessage());
+        logger.info(Arrays.toString(ex.getStackTrace()));
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity(errorDetails, HttpStatus.UNAUTHORIZED);
+    }
 
     @ExceptionHandler(ServiceUnavailableException.class)
     public ResponseEntity<ErrorDetails> handleUserServiceUnavailableException(ServiceUnavailableException ex, WebRequest request) {
