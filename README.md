@@ -1,22 +1,66 @@
-# iFood Backend Advanced Test
+## Passo a passo para rodar o projeto
 
-Create a micro-service able to accept RESTful requests receiving as parameter either city name or lat long coordinates and returns a playlist (only track names is fine) suggestion according to the current temperature.
+Será necessáio subir as aplicações na ordem abaixo e rodar os comandos na raiz dos projetos:
 
-## Business rules
+### 1 - Config-server
 
-* If temperature (celcius) is above 30 degrees, suggest tracks for party
-* In case temperature is between 15 and 30 degrees, suggest pop music tracks
-* If it's a bit chilly (between 10 and 14 degrees), suggest rock music tracks
-* Otherwise, if it's freezing outside, suggests classical music tracks 
+- ./mvnw clean install
+- java -jar target/config-server-0.0.1-SNAPSHOT.jar
 
-## Hints
+### 2 - service-discovery
 
-You can make usage of OpenWeatherMaps API (https://openweathermap.org) to fetch temperature data and Spotify (https://developer.spotify.com) to suggest the tracks as part of the playlist.
+- ./mvnw clean install
+- java -jar target/service-discovery-0.0.1-SNAPSHOT.jar
 
-## Non functional requirements
+### 3 - api-gateway
 
-As this service will be a worldwide success, it must be prepared to be fault tolerant, responsive and resilient.
+- ./mvnw clean install
+- java -jar target/api-gateway-0.0.1-SNAPSHOT.jar
 
-Use whatever language, tools and frameworks you feel comfortable to, and briefly elaborate on your solution, architecture details, choice of patterns and frameworks.
+### 4 - tracing-server
 
-Also, make it easy to deploy/run your service(s) locally (consider using some container/vm solution for this). Once done, share your code with us.
+- java -jar zipkin.jar
+
+### 5 - securitylib
+
+- ./mvnw clean install
+
+### 6 - admin-service
+
+- ./mvnw clean install
+- java -jar admin-service-0.0.1-SNAPSHOT.jar
+
+### 7 - climate-service
+
+- ./mvnw clean install
+- java -jar climate-service-0.0.1-SNAPSHOT.jar
+
+### 8 - music-service
+
+- ./mvnw clean install
+- java -jar target/music-service-0.0.1-SNAPSHOT.jar
+
+## Passo a passo para testar o projeto
+
+#### 1 - Logar e gerar o token
+
+- tipo: POST
+- url: http://localhost:8080/admin-service/api/v1/login
+- header: Content-Type - application/json
+- body: {
+	"username":"ivolopes",
+	"password":"123456"
+	}
+
+O token fica no header Authorization do response
+
+#### 2 - Pesquisar a lista de música
+
+- tipo: GET
+- url: localhost:8080/music-service/api/v1/tracks
+- headers: Authorization
+- parametros: city ou lat e lon
+- exemplos: city=Cork / lat=51.9&lon=-8.47
+
+
+	
