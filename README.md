@@ -1,6 +1,7 @@
 ## Passo a passo para rodar o projeto
 
 O projeto roda com java 11.
+
 Será necessário subir as aplicações na ordem abaixo e rodar os comandos na raiz dos projetos:
 
 ### 1 - Config-server
