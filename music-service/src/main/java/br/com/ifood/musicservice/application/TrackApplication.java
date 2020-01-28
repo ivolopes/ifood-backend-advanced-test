@@ -1,12 +1,12 @@
 package br.com.ifood.musicservice.application;
 
-import br.com.ifood.musicservice.framework.exceptions.BadRequestException;
-import br.com.ifood.musicservice.framework.exceptions.ServiceUnavailableException;
 import br.com.ifood.musicservice.infrastructure.port.application.TrackApplicationPort;
 import br.com.ifood.musicservice.infrastructure.port.data.ClimateDataPort;
 import br.com.ifood.musicservice.infrastructure.port.data.MusicDataPort;
 import br.com.ifood.musicservice.infrastructure.rest.client.climateService.dto.ClimateDTO;
 import br.com.ifood.musicservice.infrastructure.rest.controller.dto.GenericDTO;
+import br.com.ifood.securitylib.exceptions.BadRequestException;
+import br.com.ifood.securitylib.exceptions.ServiceUnavailableException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

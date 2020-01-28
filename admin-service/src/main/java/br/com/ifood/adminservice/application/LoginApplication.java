@@ -1,8 +1,8 @@
 package br.com.ifood.adminservice.application;
 
 import br.com.ifood.adminservice.domain.User;
-import br.com.ifood.adminservice.framework.exceptions.UnauthorisedException;
-import br.com.ifood.adminservice.framework.jwt.JwtTokenProvider;
+import br.com.ifood.securitylib.exceptions.UnauthorizedException;
+import br.com.ifood.securitylib.jwt.JwtTokenProvider;
 import br.com.ifood.adminservice.infrastructure.port.application.LoginApplicationPort;
 import br.com.ifood.adminservice.infrastructure.port.data.UserDataPort;
 import br.com.ifood.adminservice.infrastructure.rest.controller.v1.user.dto.UserDto;
@@ -41,13 +41,13 @@ public class LoginApplication implements LoginApplicationPort {
 
     private void validateUser(User user, UserDto userDto){
         if(Objects.isNull(user)){
-            throw new UnauthorisedException(LOGIN_ERROR);
+            throw new UnauthorizedException(LOGIN_ERROR);
         }
 
         boolean validated = bCryptPasswordEncoder.matches(userDto.getPassword(), user.getPassword());
 
         if( !validated ){
-            throw new UnauthorisedException(LOGIN_ERROR);
+            throw new UnauthorizedException(LOGIN_ERROR);
         }
     }
 }

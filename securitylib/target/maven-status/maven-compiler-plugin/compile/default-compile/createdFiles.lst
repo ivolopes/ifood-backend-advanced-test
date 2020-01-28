@@ -1,0 +1,17 @@
+br/com/ifood/securitylib/jwt/JwtTokenProvider.class
+br/com/ifood/securitylib/exceptions/ErrorDetails.class
+br/com/ifood/securitylib/SecurityLibApplication.class
+br/com/ifood/securitylib/exceptions/BadRequestException.class
+br/com/ifood/securitylib/exceptions/NotFoundException.class
+br/com/ifood/securitylib/exceptions/ServiceUnavailableException.class
+br/com/ifood/securitylib/constants/PatternConstants$EmailConstants.class
+br/com/ifood/securitylib/constants/PatternConstants$NetworkConstants.class
+br/com/ifood/securitylib/utils/NetworkUtils.class
+br/com/ifood/securitylib/exceptions/UnauthorizedException.class
+br/com/ifood/securitylib/interceptor/ServiceInterceptor.class
+br/com/ifood/securitylib/exceptions/ForbiddenException.class
+br/com/ifood/securitylib/constants/PatternConstants.class
+br/com/ifood/securitylib/interceptor/ServiceInterceptorAppConfig.class
+br/com/ifood/securitylib/dto/NetworkDTO.class
+br/com/ifood/securitylib/jwt/JwtProperties.class
+br/com/ifood/securitylib/exceptions/CustomizedResponseEntityExceptionHandler.class

@@ -1,6 +1,5 @@
 package br.com.ifood.climateservice.infrastructure.adapter.data;
 
-import br.com.ifood.climateservice.framework.exceptions.ServiceUnavailableException;
 import br.com.ifood.climateservice.infrastructure.port.data.ClimateDataPort;
 import br.com.ifood.climateservice.infrastructure.rest.client.WeatherMapClient;
 import br.com.ifood.climateservice.infrastructure.rest.client.dto.WeatherDTO;

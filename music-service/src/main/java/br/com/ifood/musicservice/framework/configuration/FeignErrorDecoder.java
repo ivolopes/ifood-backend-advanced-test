@@ -1,8 +1,8 @@
 package br.com.ifood.musicservice.framework.configuration;
 
-import br.com.ifood.musicservice.framework.exceptions.BadRequestException;
-import br.com.ifood.musicservice.framework.exceptions.ForbiddenException;
-import br.com.ifood.musicservice.framework.exceptions.UnauthorizedException;
+import br.com.ifood.securitylib.exceptions.BadRequestException;
+import br.com.ifood.securitylib.exceptions.ForbiddenException;
+import br.com.ifood.securitylib.exceptions.UnauthorizedException;
 import feign.FeignException;
 import feign.Response;
 import feign.codec.ErrorDecoder;

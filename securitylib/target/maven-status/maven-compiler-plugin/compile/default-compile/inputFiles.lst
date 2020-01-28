@@ -1,0 +1,15 @@
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/exceptions/ForbiddenException.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/jwt/JwtTokenProvider.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/utils/NetworkUtils.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/SecurityLibApplication.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/interceptor/ServiceInterceptor.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/exceptions/UnauthorizedException.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/interceptor/ServiceInterceptorAppConfig.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/exceptions/NotFoundException.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/dto/NetworkDTO.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/jwt/JwtProperties.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/exceptions/ErrorDetails.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/exceptions/ServiceUnavailableException.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/exceptions/CustomizedResponseEntityExceptionHandler.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/constants/PatternConstants.java
+/home/ivo/IdeaProjects/ifood-backend-advanced-test/securitylib/src/main/java/br/com/ifood/securitylib/exceptions/BadRequestException.java

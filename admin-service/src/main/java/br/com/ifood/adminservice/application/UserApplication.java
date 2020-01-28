@@ -1,11 +1,10 @@
 package br.com.ifood.adminservice.application;
 
 import br.com.ifood.adminservice.domain.User;
-import br.com.ifood.adminservice.framework.exceptions.BadRequestException;
-import br.com.ifood.adminservice.framework.jwt.JwtTokenProvider;
 import br.com.ifood.adminservice.infrastructure.port.application.UserApplicationPort;
 import br.com.ifood.adminservice.infrastructure.port.data.UserDataPort;
 import br.com.ifood.adminservice.infrastructure.rest.controller.v1.user.dto.UserDto;
+import br.com.ifood.securitylib.exceptions.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
