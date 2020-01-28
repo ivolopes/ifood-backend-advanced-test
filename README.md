@@ -1,6 +1,6 @@
 ## Passo a passo para rodar o projeto
 
-Será necessáio subir as aplicações na ordem abaixo e rodar os comandos na raiz dos projetos:
+Será necessário subir as aplicações na ordem abaixo e rodar os comandos na raiz dos projetos:
 
 ### 1 - Config-server
 
