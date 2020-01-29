@@ -46,6 +46,12 @@ public class ClimateData implements ClimateDataPort {
 
         if( response.isUnavailable() ){
             return ClimateDTO.builder().unavailable(true).build();
+        }else if(response.getMessage() != null &&
+                !response.getMessage().trim().equals("")){
+            return ClimateDTO.builder()
+                    .unavailable(false)
+                    .message(response.getMessage())
+                    .build();
         }else{
             double temp = Double.parseDouble(response.getMain().getTemp());
             return ClimateDTO.builder()

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableFeignClients
-@EnableCircuitBreaker
+//@EnableCircuitBreaker
 @ComponentScan({"br.com.ifood.climateservice",
 				"br.com.ifood.securitylib"})
 public class ClimateServiceApplication {

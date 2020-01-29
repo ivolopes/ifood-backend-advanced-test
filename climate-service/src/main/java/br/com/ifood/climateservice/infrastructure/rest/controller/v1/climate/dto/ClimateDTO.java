@@ -17,5 +17,7 @@ public class ClimateDTO {
     private String country;
 
     @JsonIgnore
+    private String message;
+    @JsonIgnore
     private boolean unavailable;
 }

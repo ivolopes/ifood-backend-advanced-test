@@ -1,4 +1,4 @@
-package br.com.ifood.musicservice.framework.configuration;
+package br.com.ifood.climateservice.framework.configuration;
 
 import br.com.ifood.securitylib.exceptions.BadRequestException;
 import br.com.ifood.securitylib.exceptions.ForbiddenException;
@@ -17,7 +17,7 @@ public class FeignErrorDecoder implements ErrorDecoder {
         }else if (response.status() == 403 ) {
             return new ForbiddenException(response.reason());
         }else if (response.status() == 404 ) {
-            return new NotFoundException(response.reason());
+            return new NotFoundException("City not found");
         }else if (response.status() >= 400 && response.status() <= 499 ) {
             return new BadRequestException(response.reason());
         }else if(response.status() >= 500 && response.status() <= 599) {

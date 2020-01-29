@@ -6,6 +6,7 @@ import br.com.ifood.musicservice.infrastructure.port.data.MusicDataPort;
 import br.com.ifood.musicservice.infrastructure.rest.client.climateService.dto.ClimateDTO;
 import br.com.ifood.musicservice.infrastructure.rest.controller.dto.GenericDTO;
 import br.com.ifood.securitylib.exceptions.BadRequestException;
+import br.com.ifood.securitylib.exceptions.NotFoundException;
 import br.com.ifood.securitylib.exceptions.ServiceUnavailableException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +48,8 @@ public class TrackApplication implements TrackApplicationPort {
     private void validateClimateResponse(ClimateDTO response){
         if( response.isUnavailable() ){
             throw new ServiceUnavailableException("It is not possible to get the tracks");
+        }else if( response.getMessage() != null && !response.getMessage().trim().equals("")){
+            throw new NotFoundException(response.getMessage());
         }
     }
 

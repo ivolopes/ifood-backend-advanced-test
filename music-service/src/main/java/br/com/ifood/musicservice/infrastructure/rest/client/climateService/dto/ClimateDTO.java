@@ -14,5 +14,6 @@ public class ClimateDTO {
     private Integer temperature;
     private String city;
     private String country;
+    private String message;
     private boolean unavailable;
 }
