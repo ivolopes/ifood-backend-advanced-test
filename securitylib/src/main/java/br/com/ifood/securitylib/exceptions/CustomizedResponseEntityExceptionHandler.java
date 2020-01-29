@@ -17,7 +17,7 @@ public class CustomizedResponseEntityExceptionHandler {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<ErrorDetails> handleUserBadRequestException(BadRequestException ex, WebRequest request) {
+    public ResponseEntity<ErrorDetails> handleBadRequestException(BadRequestException ex, WebRequest request) {
         logger.error(ex.getMessage());
         logger.error(Arrays.toString(ex.getStackTrace()));
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
@@ -25,7 +25,7 @@ public class CustomizedResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(ForbiddenException.class)
-    public ResponseEntity<ErrorDetails> handleUserBadRequestException(ForbiddenException ex, WebRequest request) {
+    public ResponseEntity<ErrorDetails> handleForbiddenException(ForbiddenException ex, WebRequest request) {
         logger.error(ex.getMessage());
         logger.error(Arrays.toString(ex.getStackTrace()));
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
@@ -33,7 +33,7 @@ public class CustomizedResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(UnauthorizedException.class)
-    public ResponseEntity<ErrorDetails> handleUserBadRequestException(UnauthorizedException ex, WebRequest request) {
+    public ResponseEntity<ErrorDetails> handleUnauthorizedException(UnauthorizedException ex, WebRequest request) {
         logger.error(ex.getMessage());
         logger.error(Arrays.toString(ex.getStackTrace()));
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
@@ -41,7 +41,7 @@ public class CustomizedResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorDetails> handleUserBadRequestException(NotFoundException ex, WebRequest request) {
+    public ResponseEntity<ErrorDetails> handleUserNotFoundException(NotFoundException ex, WebRequest request) {
         logger.error(ex.getMessage());
         logger.error(Arrays.toString(ex.getStackTrace()));
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
@@ -49,7 +49,7 @@ public class CustomizedResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(ServiceUnavailableException.class)
-    public ResponseEntity<ErrorDetails> handleUserServiceUnavailableException(ServiceUnavailableException ex, WebRequest request) {
+    public ResponseEntity<ErrorDetails> handleServiceUnavailableException(ServiceUnavailableException ex, WebRequest request) {
         logger.error(ex.getMessage());
         logger.error(Arrays.toString(ex.getStackTrace()));
         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
