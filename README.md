@@ -1,3 +1,13 @@
+## Stack de desenvolvimento
+
+- Java 11
+- Spring Boot
+- Spring Cloud (Feign, Config, Eureka, Zuul, Ribbon, Hystrix, Sleuth, Zipkin)
+- JWT (JSON Web Token)
+- Lombok
+- H2
+- Flyway
+
 ## Passo a passo para rodar o projeto
 
 O projeto roda com java 11.
