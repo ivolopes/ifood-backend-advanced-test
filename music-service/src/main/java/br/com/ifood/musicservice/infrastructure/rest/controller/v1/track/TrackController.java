@@ -27,11 +27,11 @@ public class TrackController {
     }
 
     @GetMapping
-    public ResponseEntity<List<GenericDTO>> findClimate(@RequestHeader(name = "Authorization") String token,
+    public ResponseEntity<List<GenericDTO>> getTracks(@RequestHeader(name = "Authorization") String token,
                                                         @RequestParam(required = false) String lat,
                                                         @RequestParam(required = false) String lon,
                                                         @RequestParam(required = false) String city){
-
+        logger.info("get tracks method");
         final List<GenericDTO> tracks = trackApplication.getTracks(token, city, lat, lon);
 
         return ResponseEntity.ok(tracks);
