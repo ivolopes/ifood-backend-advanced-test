@@ -1,3 +1,13 @@
+## Stack de desenvolvimento
+
+- Java 11
+- Spring Boot
+- Spring Cloud (Feign, Config, Eureka, Zuul, Ribbon, Hystrix, Sleuth, Zipkin)
+- JWT (JSON Web Token)
+- Lombok
+- H2
+- Flyway
+
 ## Passo a passo para rodar o projeto
 
 O projeto roda com java 11.
@@ -59,7 +69,7 @@ O token fica no header Authorization do response
 #### 2 - Pesquisar a lista de música
 
 - tipo: GET
-- url: localhost:8080/music-service/api/v1/tracks
+- url: http://localhost:8080/music-service/api/v1/tracks
 - headers: Authorization
 - parametros: city ou lat e lon
 - exemplos: city=Cork / lat=51.9&lon=-8.47
